@@ -1,53 +1,43 @@
 <template>
-    <div class="hello">
-        <div class="container">
-    <div class="row">
-    <div class="col">
-      1 of 3
-    </div>
-    <div class="col">
-      2 of 3
-    </div>
-    <div class="col">
-      2 of 3
-    </div>
-  </div>
-  <div class="row">
-    <div class="col">
-      1 of 3
-    </div>
-    <div class="col">
-      2 of 3
-    </div>
-    <div class="col">
-      3 of 3
-    </div>
+    <div>
+        <div>
+            <div>
+        <div v-for="(disk,i) in listDisks" :key="i">
+        <div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <img class="card-img-top" :src="disk.poster" alt="Card image cap">
+    <h5 class="card-title">{{disk.title}}</h5>
+    <p>{{disk.author}}</p>
+    <p>{{disk.year}}</p>
   </div>
 </div>
     </div>
-  </template>
+    </div>
+        </div>
+    </div>
+    
+</template>
   
 <script>
 
 import axios from "axios"; 
 
   export default {
-    name: "HeaderComponent",
-    props: {
-      msg: String,
-    },
+    name: "MainComponent",
+    
     data(){
     return  {
-        listDiscs: []
+        listDisks: []
     };
     
   },
     created(){
     axios
-                    .get('https://flynn.boolean.careers/exercises/api/array/music')
-                    .then((res) => {
-                console.log(res.data.response)
-                this.listDiscs = res.data;
+        .get("https://flynn.boolean.careers/exercises/api/array/music")
+        .then((res) => {
+                console.log(res.data)
+                this.listDisks = res.data.response;
+                
             });
   },
   };
