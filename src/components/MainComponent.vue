@@ -2,7 +2,7 @@
     <div class="mainComponent">
       <div class="container mt-5">
             <div class="row gy-5 mx-auto">
-        <div v-for="(disk,i) in listDisks" :key="i" class="col-sm">
+        <div v-for="(disk,i) in listDisks" :key="i" class="col">
         <div class="card">
   <div class="card-body">
     <img class="card-img-top poster" :src="disk.poster" alt="Card image cap">
