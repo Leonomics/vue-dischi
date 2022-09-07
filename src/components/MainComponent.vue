@@ -1,11 +1,11 @@
 <template>
-    <div>
-        <div>
-            <div>
-        <div v-for="(disk,i) in listDisks" :key="i">
-        <div class="card" style="width: 18rem;">
+    <div class="mainComponent">
+      <div class="container mt-5">
+            <div class="row gy-5 mx-auto">
+        <div v-for="(disk,i) in listDisks" :key="i" class="col-sm">
+        <div class="card">
   <div class="card-body">
-    <img class="card-img-top" :src="disk.poster" alt="Card image cap">
+    <img class="card-img-top poster" :src="disk.poster" alt="Card image cap">
     <h5 class="card-title">{{disk.title}}</h5>
     <p>{{disk.author}}</p>
     <p>{{disk.year}}</p>
@@ -15,6 +15,8 @@
     </div>
         </div>
     </div>
+      
+    
     
 </template>
   
@@ -50,6 +52,22 @@ import axios from "axios";
   
     .navbarStyle{
       background-color: #2e3a46;
+    }
+
+    .card{
+      background-color: #2e3a46;
+      width: 194px;
+      height: 364px;
+    }
+    .poster{
+      width: 160px;
+      height: 160px;
+    }
+    .card-title{
+      max-width: 160px;
+    }
+    .mainComponent{
+      background-color: #1e2d3b;
     }
   </style>
   
