@@ -6,9 +6,9 @@
         <div class="card">
   <div class="card-body">
     <img class="card-img-top poster" :src="disk.poster" alt="Card image cap">
-    <h5 class="card-title">{{disk.title}}</h5>
-    <p>{{disk.author}}</p>
-    <p>{{disk.year}}</p>
+    <h5 class="card-title mt-3">{{disk.title}}</h5>
+    <p style="color:grey">{{disk.author}}</p>
+    <p style="color:grey">{{disk.year}}</p>
   </div>
 </div>
     </div>
@@ -66,6 +66,7 @@ import axios from "axios";
     }
     .card-title{
       max-width: 160px;
+      color: white;
     }
     .mainComponent{
       background-color: #1e2d3b;
