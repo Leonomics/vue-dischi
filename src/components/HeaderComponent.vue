@@ -5,8 +5,8 @@
       <a class="navbar-brand" href="#">
         <img src="../assets/spotify.png" width="30" height="30" alt="">
       </a>
-      <select v-model="genre" class="selectpicker" aria-label="Default select example">
-        <option v-for="(genre, i) of genres" :key="i">{{genre}}</option>
+      <select v-model="myGenre" class="selectpicker" aria-label="Default select example">
+        <option v-for="(genre, i) in genres" :key="i" value="myGenre">{{genre}}</option>
       </select>
     </nav>
   </div>
@@ -21,25 +21,19 @@ export default {
   },
   data(){
     return{
-      genre: "",
+      myGenre: "",
       genres: ["Rock", "Pop", "Jazz", "Metal"]
     };
 
   },
   computed: {
-    filteredGenres() {
-      return this.listDisks.filter((disk) => {
-        const songGenre = disk.genre.toLowerCase()
-        const genre = this.genre.toLowerCase()
-
-        if (songGenre.includes(genre)){
-          return true
-        }
-        else{
-          return false
-        }
-      });
+    filteredGenres: function(){
+      return this.genres.filter((genre)=>{
+        return genre.includes(this.myGenre)
+      })
     }
+      
+    
   },
 }
 </script>
