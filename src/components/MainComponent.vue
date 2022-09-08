@@ -1,19 +1,19 @@
 <template>
     <div class="mainComponent">
       <div class="container mt-5">
-            <div class="row gy-5 mx-auto">
-        <div v-for="(disk,i) in listDisks" :key="i" class="col">
-        <div class="card">
-  <div class="card-body">
-    <img class="card-img-top poster" :src="disk.poster" alt="Card image cap">
-    <h5 class="card-title mt-3">{{disk.title}}</h5>
-    <p style="color:grey">{{disk.author}}</p>
-    <p style="color:grey">{{disk.year}}</p>
-  </div>
-</div>
-    </div>
-    </div>
-        </div>
+          <div class="row gy-5 mx-auto">
+            <div v-for="(disk,i) in listDisks" :key="i" class="col">
+            <div class="card">
+              <div class="card-body">
+                <img class="card-img-top poster" :src="disk.poster" alt="Card image cap">
+                <h5 class="card-title mt-3">{{disk.title}}</h5>
+                <p style="color:grey">{{disk.author}}</p>
+                <p style="color:grey">{{disk.year}}</p>
+              </div>
+          </div>
+          </div>
+          </div>
+     </div>
     </div>
       
     
@@ -30,6 +30,7 @@ import axios from "axios";
     data(){
     return  {
         listDisks: []
+        
     };
     
   },
