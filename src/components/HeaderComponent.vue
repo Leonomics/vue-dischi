@@ -5,8 +5,8 @@
       <a class="navbar-brand" href="#">
         <img src="../assets/spotify.png" width="30" height="30" alt="">
       </a>
-      <select v-model="myGenre" class="selectpicker" aria-label="Default select example">
-        <option v-for="(genre, i) in genres" :key="i" value="myGenre">{{genre}}</option>
+      <select @change="this.prova" v-model="myGenre" class="selectpicker" aria-label="Default select example">
+        <option v-for="(genre, i) in genres" :key="i" :value='genre'>{{genre}}</option>
       </select>
     </nav>
   </div>
@@ -35,6 +35,11 @@ export default {
       
     
   },
+  method:{
+    prova(){
+      console.log(this.myGenre)
+    }
+  }
 }
 </script>
 
