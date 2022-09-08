@@ -58,6 +58,7 @@ import axios from "axios";
       background-color: #2e3a46;
       width: 194px;
       height: 364px;
+      text-align: center;
     }
     .poster{
       width: 160px;
