@@ -5,7 +5,7 @@
       <a class="navbar-brand" href="#">
         <img src="../assets/spotify.png" width="30" height="30" alt="">
       </a>
-      <select @change="this.prova" v-model="myGenre" class="selectpicker" aria-label="Default select example">
+      <select @change="$emit('myGenre', myGenre)" v-model="myGenre" class="selectpicker" aria-label="Default select example">
         <option v-for="(genre, i) in genres" :key="i" :value='genre'>{{genre}}</option>
       </select>
     </nav>
@@ -16,8 +16,10 @@
 export default {
   name: "HeaderComponent",
   props: {
-    msg: String,
-    //genre: String,
+    genre:{
+      type: String,
+      
+    }
   },
   data(){
     return{
@@ -26,19 +28,14 @@ export default {
     };
 
   },
-  computed: {
-    filteredGenres: function(){
-      return this.genres.filter((genre)=>{
-        return genre.includes(this.myGenre)
-      })
-    }
-      
-    
-  },
-  method:{
+  
+  methods:{
     prova(){
       console.log(this.myGenre)
     }
+    /*select(){
+      this.$emit
+    }*/
   }
 }
 </script>

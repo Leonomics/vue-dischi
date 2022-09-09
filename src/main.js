@@ -13,3 +13,12 @@ Vue.config.productionTip = false;
 new Vue({
   render: (h) => h(App),
 }).$mount("#app");
+
+
+const mioEvento = new CustomEvent('select')
+
+document.body.addEventListener('select', (e) => {
+  console.log(e)
+})
+
+document.body.dispatchEvent(mioEvento)

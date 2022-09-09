@@ -2,7 +2,7 @@
     <div class="mainComponent">
       <div class="container mt-5">
           <div class="row gy-5 mx-auto">
-            <div v-for="(disk,i) in listDisks" :key="i" class="col">
+            <div v-for="(disk,i) in filteredGenres" :key="i" class="col">
             <div class="card">
               <div class="card-body">
                 <img class="card-img-top poster" :src="disk.poster" alt="Card image cap">
@@ -22,28 +22,46 @@
   
 <script>
 
-import axios from "axios"; 
+import axios from "axios";
+
+
 
   export default {
     name: "MainComponent",
-    
-    data(){
-    return  {
-        listDisks: []
-        
-    };
-    
+    data() {
+        return {
+            listDisks: [],
+            listGenres: [],
+            myGenre:'',
+            //myGenre: "",
+            //genres: ["Rock", "Pop", "Jazz", "Metal"]
+        };
+    },
+
+    computed: {
+      filteredGenres(){
+        return this.listDisks.filter(disk =>{
+          const genre = disk.genre
+          const myGenre = this.myGenre
+
+          if(genre.includes(myGenre)){
+            return true
+          }
+          return false
+        })
+    }
   },
-    created(){
-    axios
-        .get("https://flynn.boolean.careers/exercises/api/array/music")
-        .then((res) => {
-                console.log(res.data)
-                this.listDisks = res.data.response;
-                
-            });
-  },
-  };
+
+    created() {
+        axios
+            .get("https://flynn.boolean.careers/exercises/api/array/music")
+            .then((res) => {
+            console.log(res.data);
+            this.listDisks = res.data.response;
+        });
+    },
+  }
+    
 
 </script>
   

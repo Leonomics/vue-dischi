@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <HeaderComponent msg="Welcome to Your Vue.js App" />
+    <HeaderComponent/>
     <MainComponent></MainComponent>
   </div>
 </template>
@@ -22,6 +22,11 @@ export default {
     HeaderComponent,
     MainComponent
 },
+methods: {
+  selectDisk(myGenre){
+    console.log(myGenre)
+  }
+}
 };
 </script>
 
