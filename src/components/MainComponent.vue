@@ -32,17 +32,18 @@ import axios from "axios";
         return {
             listDisks: [],
             listGenres: [],
-            myGenre:'',
-            //myGenre: "",
             //genres: ["Rock", "Pop", "Jazz", "Metal"]
         };
+    },
+    props:{
+      myReceivedGenre: String,
     },
 
     computed: {
       filteredGenres(){
         return this.listDisks.filter(disk =>{
           const genre = disk.genre
-          const myGenre = this.myGenre
+          const myGenre = this.myReceivedGenre
 
           if(genre.includes(myGenre)){
             return true

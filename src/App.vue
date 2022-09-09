@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <HeaderComponent/>
-    <MainComponent></MainComponent>
+    <HeaderComponent @myGenreEmit="selectDisk"/>
+    <MainComponent :myReceivedGenre="mySelectedGenre"></MainComponent>
   </div>
 </template>
 
@@ -14,10 +14,11 @@ export default {
   name: "App",
   data(){
     return  {
-      
+      mySelectedGenre:'',
     };
     
   },
+  
   components: {
     HeaderComponent,
     MainComponent
@@ -25,6 +26,7 @@ export default {
 methods: {
   selectDisk(myGenre){
     console.log(myGenre)
+    this.mySelectedGenre = myGenre
   }
 }
 };
